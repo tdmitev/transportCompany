@@ -53,6 +53,10 @@ public class Transport extends BaseEntity{
     @Column
     private Integer passengersCount;
 
+    @ManyToOne
+    @JoinColumn(name = "company_id", nullable = false)
+    private TransportCompany company;
+
     // Getters and Setters
 
     public TransportStatus getStatus() {
@@ -62,6 +66,15 @@ public class Transport extends BaseEntity{
     public void setStatus(TransportStatus status) {
         this.status = status;
     }
+
+    public TransportCompany getCompany() {
+        return company;
+    }
+
+    public void setCompany(TransportCompany company) {
+        this.company = company;
+    }
+
 
     public TransportType getTransportType() {
         return transportType;
