@@ -13,7 +13,7 @@ public class Client extends BaseEntity{
     @Column(length = 255)
     private String address;
 
-    @Column(length = 100)
+    @Column(length = 100, unique = true)
     private String email;
 
     @Column(length = 20)
