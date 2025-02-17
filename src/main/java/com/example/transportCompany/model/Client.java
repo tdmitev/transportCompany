@@ -16,7 +16,7 @@ public class Client extends BaseEntity{
     @Column(length = 100, unique = true)
     private String email;
 
-    @Column(length = 20)
+    @Column(length = 20, unique = true)
     private String phone;
 
     @OneToMany(mappedBy = "client")
