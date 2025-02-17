@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -35,6 +36,22 @@ public class EmployeeController {
     @GetMapping
     public ResponseEntity<List<EmployeeResponseDto>> getAllEmployees() {
         List<EmployeeResponseDto> employees = employeeService.getAllEmployees();
+        return ResponseEntity.ok(employees);
+    }
+
+    @GetMapping("/by-company/{companyId}")
+    public ResponseEntity<List<EmployeeResponseDto>> getEmployeesByCompanyId(@PathVariable Integer companyId) {
+        List<EmployeeResponseDto> employees = employeeService.getEmployeesByCompanyId(companyId);
+        return ResponseEntity.ok(employees);
+    }
+
+    @GetMapping("/sorted-and-filtered")
+    public ResponseEntity<List<EmployeeResponseDto>> getSortedAndFilteredEmployees(
+            @RequestParam(required = false) String qualification,
+            @RequestParam(required = false) BigDecimal minSalary,
+            @RequestParam(required = false) BigDecimal maxSalary,
+            @RequestParam(required = false) String sortOrder) {
+        List<EmployeeResponseDto> employees = employeeService.getSortedAndFilteredEmployees(qualification, minSalary, maxSalary, sortOrder);
         return ResponseEntity.ok(employees);
     }
 

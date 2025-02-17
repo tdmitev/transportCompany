@@ -9,16 +9,13 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface EmployeeMapper {
 
-    @Mapping(target = "qualificationIds", ignore = true)
-    @Mapping(target = "qualifications", ignore = true)
-    @Mapping(target = "companyId", source = "company.id")
-    EmployeeDto toDto(Employee employee);
-
     @Mapping(target = "company", ignore = true)
+    @Mapping(target = "transports", ignore = true)
     @Mapping(target = "qualifications", ignore = true)
     Employee toEntity(EmployeeDto dto);
 
     @Mapping(target = "companyId", source = "company.id")
+    @Mapping(target = "companyName", source = "company.name")
     @Mapping(target = "qualifications", source = "qualifications")
     EmployeeResponseDto toResponseDto(Employee employee);
 }

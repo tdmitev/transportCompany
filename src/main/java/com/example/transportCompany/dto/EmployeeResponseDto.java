@@ -9,5 +9,6 @@ public record EmployeeResponseDto(
         String position,
         BigDecimal salary,
         Integer companyId,
+        String companyName,
         List<QualificationDto> qualifications
 ) {}

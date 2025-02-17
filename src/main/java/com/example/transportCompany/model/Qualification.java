@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "qualification")
 public class Qualification extends BaseEntity{
-    // "HAZMAT", "FLAMMABLE", "PASSENGERS_OVER_12"
+    // "HAZMAT", "FLAMMABLE", "PASSENGERS_OVER_12", "HEAVY_CARGO"
     @Column(nullable = false, length = 50, unique = true)
     private String name;
 
