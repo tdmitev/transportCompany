@@ -37,6 +37,15 @@ public class TransportCompanyController {
         return ResponseEntity.ok(companies);
     }
 
+    @GetMapping("/sorted-and-filtered")
+    public ResponseEntity<List<TransportCompanyDto>> getSortedAndFilteredCompanies(
+            @RequestParam(required = false) String sortBy,
+            @RequestParam(required = false) String order,
+            @RequestParam(required = false) String partialName) {
+        List<TransportCompanyDto> companies = transportCompanyService.getSortedAndFilteredCompanies(sortBy, order, partialName);
+        return ResponseEntity.ok(companies);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<TransportCompanyDto> updateCompany(@PathVariable Integer id, @Valid @RequestBody TransportCompanyDto dto) {
         TransportCompanyDto updated = transportCompanyService.updateCompany(id, dto);

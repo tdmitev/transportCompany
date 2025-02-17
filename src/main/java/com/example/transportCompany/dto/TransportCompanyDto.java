@@ -4,6 +4,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.UniqueElements;
+
 import java.math.BigDecimal;
 
 public record TransportCompanyDto (
@@ -19,7 +21,6 @@ public record TransportCompanyDto (
         String address,
 
         @Email(message = "Email must be valid")
-        @NotBlank(message = "Contact email is required")
         String contactEmail,
 
         @NotBlank(message = "Contact phone is required")
