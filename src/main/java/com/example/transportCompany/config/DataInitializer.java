@@ -28,6 +28,10 @@ public class DataInitializer {
                 flammable.setName("FLAMMABLE");
                 qualificationRepository.save(flammable);
 
+                Qualification heavyCargo = new Qualification();
+                heavyCargo.setName("HEAVY_CARGO");
+                qualificationRepository.save(heavyCargo);
+
                 Qualification passengersOver12 = new Qualification();
                 passengersOver12.setName("PASSENGERS_OVER_12");
                 qualificationRepository.save(passengersOver12);
