@@ -5,6 +5,6 @@ public record VehicleResponseDto(
         Integer id,
         String licensePlate,
         BigDecimal fuelConsumption,
-        Integer companyId,
+        String companyName,
         String typeName
 ) {}

@@ -16,7 +16,7 @@ public interface VehicleMapper {
     @Mapping(target = "vehicleType", ignore = true)
     Vehicle toEntity(VehicleDto dto);
 
-    @Mapping(target = "companyId", source = "company.id")
+    @Mapping(target = "companyName", source = "company.name")
     @Mapping(target = "typeName", source = "vehicleType.name")
     VehicleResponseDto toResponseDto(Vehicle vehicle);
 }

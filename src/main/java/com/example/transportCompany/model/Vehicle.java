@@ -8,7 +8,7 @@ import java.util.List;
 @Table(name = "vehicle")
 public class Vehicle extends BaseEntity{
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 20, unique = true)
     private String licensePlate;
 
     @Column(nullable = false, precision = 5, scale = 2)
